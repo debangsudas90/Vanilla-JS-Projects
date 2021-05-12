@@ -4,6 +4,9 @@
   padding: 0;
 }
 
+body {
+  overflow: hidden;
+}
 .clockContents {
   margin: auto;
   position: relative;
@@ -44,4 +47,15 @@
   top: 17%;
   left: 49%;
   opacity: 0.8;
+}
+
+.clockContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3vh auto;
+  width: 29%;
+  font-size: 5vh;
+  border: 5px solid black;
+  border-radius: 17px;
 }
