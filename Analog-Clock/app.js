@@ -1,4 +1,4 @@
-let am_pm = "am";
+let am_pm = "AM";
 
 setInterval(() => {
     date = new Date();
