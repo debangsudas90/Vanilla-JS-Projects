@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("img/1.jpg");
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.2rem;
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 400px;
+}
+
+.icon {
+  position: relative;
+  top: -50px;
+  border-radius: 50%;
+  width: 100px;
+  margin-bottom: -50px;
+}
+
+.card {
+  height: 73vh;
+}
+
+.card-img,
+.card-img-bottom,
+.card-img-top {
+  width: 375px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.container form input {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.container form input:focus {
+  background-color: rgba(255, 255, 255, 0.8);
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+}
