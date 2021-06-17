@@ -17,7 +17,6 @@ const bgColours = {
     flying: '#f5f5f5',
     fighting: '#e6e0d4',
     normal: '#f5f5f5',
-    // 
     ice: '#98d8d8',
     dark: '#979ca3',
     ghost: '#b4c0c2',
