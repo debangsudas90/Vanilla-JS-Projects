@@ -1,0 +1,117 @@
+@font-face {
+  font-family: PokemonGb;
+  src: url(PokemonGb.ttf);
+}
+
+@font-face {
+  font-family: PokemonSolid;
+  src: url(PokemonSolid.ttf);
+}
+
+body {
+  font-family: "PokemonGb";
+  background-color: #202124;
+  font-size: 0.7rem;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  padding: 25px;
+  max-width: 400px;
+  border: solid lightblue 2px;
+  border-radius: 10px;
+}
+
+#pokeball {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: -22px;
+  left: -51px;
+  transition: 300ms ease all;
+}
+
+#pokeball:hover {
+  cursor: pointer;
+  transform: rotate(-360deg);
+}
+
+h1 {
+  font-family: "PokemonSolid", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.container form input {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.container form input:focus {
+  background-color: rgba(255, 255, 255, 0.8);
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.poke-card {
+  background-color: #fddfdf;
+}
+
+.poke-photo {
+  width: 250px;
+  height: 270px;
+  object-fit: cover;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 20%;
+}
+
+.stats {
+  border: 4px double black;
+}
+
+ul {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+}
+
+#col2 {
+  padding-left: 5px;
+}
+
+.type li {
+  display: inline-block;
+  font-size: 12px;
+  background-color: grey;
+  padding: 5px 10px;
+  border: 1px black solid;
+  border-radius: 14px;
+}
+
+.type ul {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    overflow: auto;
+  }
+
+  .container {
+    max-width: 300px;
+  }
+
+  .poke-photo {
+    width: 150px;
+    height: 170px;
+    object-fit: cover;
+  }
+
+  #pokeball {
+    height: 70px;
+    width: 70px;
+    top: -17px;
+    left: -27px;
+  }
+}
