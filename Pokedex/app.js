@@ -1,6 +1,7 @@
 const pokeSearch = document.querySelector('form');
 const pokeCard = document.querySelector('.poke-card');
 const pokeRandom = document.getElementById('pokeball');
+const sound = document.querySelector('audio');
 
 const bgColours = {
     fire: '#fddfdf',
@@ -49,27 +50,27 @@ const typeColour = Object.keys(typeColours);
 
 //update UI
 const updateInfo = (data) => {
-
+    
     //updateinfo
     pokeCard.innerHTML = `
     <img src= "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png"class="poke-photo card-img-top">
-        <div class="poke-details">
-        <h2 class="my-3 fw-light text-uppercase">${data.name}</h2>
-        <div class="stats bg-light mx-2 p-3 fw-light">
-            <ul id="col1">
-                <li>Height: ${data.height}</li>
-                <li>Weight: ${data.weight}</li>
-            </ul>
-            <ul id="col2">
-                <li>HP: ${data.stats[0].base_stat}</li>
-                <li>Attack: ${data.stats[1].base_stat}</li>
-            </ul>
-        </div>
-        <div class="type my-3 text-uppercase">
-            <ul>
-                <li>${data.types[0].type.name}</li>
-            <ul>
-        </div>
+    <div class="poke-details">
+    <h2 class="my-3 fw-light text-uppercase">${data.name}</h2>
+    <div class="stats bg-light mx-2 p-3 fw-light">
+    <ul id="col1">
+    <li>Height: ${data.height}</li>
+    <li>Weight: ${data.weight}</li>
+    </ul>
+    <ul id="col2">
+    <li>HP: ${data.stats[0].base_stat}</li>
+    <li>Attack: ${data.stats[1].base_stat}</li>
+    </ul>
+    </div>
+    <div class="type my-3 text-uppercase">
+    <ul>
+    <li>${data.types[0].type.name}</li>
+    <ul>
+    </div>
     `;
     
     //change card bg color
@@ -78,16 +79,16 @@ const updateInfo = (data) => {
             pokeCard.style.backgroundColor= `${bgColours[key]}`;
         }   
     });
-
+    
     //change type color
     const pokeType = document.querySelector('.type li');
-
+    
     typeColour.forEach(key => {
         if(key == data.types[0].type.name) {
             pokeType.style.backgroundColor= `${typeColours[key]}`;
         } 
     });
-
+    
     //remove d-none
     if(pokeCard.classList.contains("d-none")){
         pokeCard.classList.remove("d-none");
@@ -99,25 +100,29 @@ pokeSearch.addEventListener('submit', e => {
     
     //prevent default action
     e.preventDefault();
-
+    
     //take pokemon-input
     const pokeName = pokeSearch.search.value.trim().toLowerCase();
     pokeSearch.reset();
-
+    
     //update UI
     getPokemon(pokeName)
-        .then(data => updateInfo(data))
-        .catch(err => console.log(err));
+    .then(data => updateInfo(data))
+    .catch(err => console.log(err));
+
+    sound.play();
 });
 
 //generate random pokemon
 pokeRandom.addEventListener('click', e=> {
-
+    
     //generate random number
     let randomId = Math.floor((Math.random()*898) + 1);
     
     //updateUi
     getPokemon(randomId)
-        .then(data => updateInfo(data))
-        .catch(err => console.log(err));
-})
+    .then(data => updateInfo(data))
+    .catch(err => console.log(err));
+
+    sound.play();
+});
